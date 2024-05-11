@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "293582260187",
+    "project_id": "total-x-608fd",
+    "storage_bucket": "total-x-608fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293582260187:android:a681edc23c37f1af9b49fe",
+        "android_client_info": {
+          "package_name": "com.example.mechinetest_totalx"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCtN0RmzKcuLRmZlD98DBcDdTNXFy8g9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293582260187:android:830370580a4ff6859b49fe",
+        "android_client_info": {
+          "package_name": "com.example.phoneauth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCtN0RmzKcuLRmZlD98DBcDdTNXFy8g9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
