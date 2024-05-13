@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mechinetest_totalx/controller/addnewuser_provider.dart';
 import 'package:mechinetest_totalx/controller/authprovider.dart';
 import 'package:mechinetest_totalx/views/auth/loginpages.dart';
@@ -24,7 +25,13 @@ class MyApp extends StatelessWidget {
       ChangeNotifierProvider(create: (context) => AddNewUserProvider())
 
     ],
+    
     child: MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme:ThemeData(
+  textTheme: GoogleFonts.montserratTextTheme(),
+),
+
       
       home: Loginpage(),
     ),

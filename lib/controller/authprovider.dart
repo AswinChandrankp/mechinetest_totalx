@@ -114,4 +114,14 @@ class AuthProvider extends ChangeNotifier {
       return false;
     }
   }
+
+
+
+
+
+
+
+
+
+  
 }

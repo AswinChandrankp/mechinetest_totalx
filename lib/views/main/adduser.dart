@@ -1,8 +1,6 @@
 
 
 
-
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -48,137 +46,193 @@ class _AddUserState extends State<AddUser> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: 390,
+      height: 450,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+
+      ),
+      // width: MediaQuery.of(context).size.width * 0.95,
+      // height: MediaQuery.of(context).size.height*0.6,
       child: Form(
         key: _formKey,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
-                  Text("Add New User"),
-                ],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: const [
+                    Text("Add New User",style: TextStyle(fontSize: 13,fontWeight: FontWeight.w600),),
+                  ],
+                ),
               ),
-            ),
-            Center(
-              child: InkWell(
-                onTap: () {
-                  _selectImage();
-                  
-                },
-                child: _image == null
-                    ? const CircleAvatar(
-                        radius: 50,
-                        backgroundColor: Colors.blue,
-                        child: Icon(
-                          Icons.account_circle,
-                          size: 100,
-                          color: Colors.white,
+              Center(
+                child: InkWell(
+                  onTap: () {
+                    _selectImage();
+                    
+                  },
+                  child: _image == null
+                      ? const CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Colors.blue,
+                          child: Icon(
+                            Icons.account_circle,
+                            size: 80,
+                            color: Colors.white,
+                          ),
+                        )
+                      :  CircleAvatar(
+                          radius: 40,
+                          backgroundImage:  FileImage(File(_image!.path))  ,
+                          
                         ),
-                      )
-                    : Image.file(_image!), // Display selected image
+                     
+                ),
               ),
-            ),
-            const Text("Name"),
-            Customtextfield(
-              controller: _nameController,
-              keyboardType: TextInputType.text,
-              hintText: "Name",
-              // validator: (value) {
-              //   if (value == null || value.isEmpty) {
-              //     return 'Please enter a name';
-              //   }
-              //   return null;
-              // },
-            ),
-             const Text("Number"),
-            Customtextfield(
-              controller: _numberController,
-              keyboardType: TextInputType.number,
-              hintText: "Number",
-              // validator: (value) {
-              //   if (value == null || value.isEmpty) {
-              //     return 'Please enter an age';
-              //   }
-              //   return null;
-              // },
-            ),
-            const Text("Age"),
-            Customtextfield(
-              controller: _ageController,
-              keyboardType: TextInputType.number,
-              hintText: "Age",
-              // validator: (value) {
-              //   if (value == null || value.isEmpty) {
-              //     return 'Please enter an age';
-              //   }
-              //   return null;
-              // },
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  child: Row(
-                    children: [
-                      CustomElevatedButton(
-                        onPressed: () {
-                          Navigator.pop(context); // Cancel button action
-                        },
-                        text: 'Cancel',
-                      ),
-                      CustomElevatedButton(
-                        onPressed: () {
-                          _addNewUser(context);
-                        },
-                        // onPressed: () {
-                        //   if (_formKey.currentState!.validate()) {
-                        //     _addNewUser();
-                        //   }
-                        // },
-                        text: 'Submit',
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            )
-          ],
+              Padding(
+                  padding: EdgeInsets.all(8.0),
+                child: const Text("Name",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xFF333333)),),
+              ),
+              
+              CustomTextField(
+                
+                controller: _nameController,
+                keyboardType: TextInputType.text,
+                hintText: "Name",
+                // validator: (value) {
+                //   if (value == null || value.isEmpty) {
+                //     return 'Please enter a name';
+                //   }
+                //   return null;
+                // },
+              ),
+               Padding(
+                padding: EdgeInsets.all(8.0),
+            
+                 child: const Text("Number",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xFF333333)),),
+               ),
+              CustomTextField(
+                controller: _numberController,
+                keyboardType: TextInputType.number,
+                hintText: "Number",
+                // validator: (value) {
+                //   if (value == null || value.isEmpty) {
+                //     return 'Please enter an age';
+                //   }
+                //   return null;
+                // },
+              ),
+              Padding(
+                  padding: EdgeInsets.all(8.0),
+                child: const Text("Age",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w400,color: Color(0xFF333333)),),
+              ),
+              CustomTextField(
+                controller: _ageController,
+                keyboardType: TextInputType.number,
+                hintText: "Age",
+                // validator: (value) {
+                //   if (value == null || value.isEmpty) {
+                //     return 'Please enter an age';
+                //   }
+                //   return null;
+                // },
+              ),
+
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    child: Row(
+                      children: [
+                        CustomElevatedButton(
+                          borderRadius: 8,
+                          color: Color(0xFFCCCCCC),
+                          onPressed: () {
+                            Navigator.pop(context); // Cancel button action
+                          },
+                          text: 'Cancel',
+                        ),
+                        SizedBox(width: 10),
+                        CustomElevatedButton(
+                          borderRadius: 8,
+                          color: Color(0xFF1782FF),
+                          onPressed: () {
+                            _addNewUser(context);
+                          },
+                          // onPressed: () {
+                          //   if (_formKey.currentState!.validate()) {
+                          //     _addNewUser();
+                          //   }
+                          // },
+                          text: 'Submit',
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 
-  void _addNewUser(BuildContext context) async {
+
+Future<void> _addNewUser(BuildContext context) async {
+  
+  if (_formKey.currentState!.validate()) {
     final String id = Uuid().v1();
     final String name = _nameController.text;
     final String age = _ageController.text;
     final String number = _numberController.text;
 
+   
+  
+// if (_formKey.currentState!.validate() == null) {
+//      showsnackbar(context, "Enter Details");
+//      return;
+     
+//    }
 
-    if (name.isNotEmpty && age.isNotEmpty) {
-      final newusermodel newUser = newusermodel(
-        id: id,
-        name: name,
-        age: age,
-        image: _image?.path ?? '', 
-        number: number
-        // Handle image path if image is selected
-      );
+    if (_image == null) {
+      showsnackbar(context, "Please select an image");
+      return;
+      
+    }
+    final newUser = newusermodel(
+      id: id,
+      name: name,
+      age: age,
+      image: _image !.path,
+      number: number,
+    );
 
-      try {
-        final AddNewUserProvider addNewUserProvider =
-            Provider.of<AddNewUserProvider>(context, listen: false);
-        await addNewUserProvider.createUser(newUser);
-        showsnackbar(context, "User Added");
-        Navigator.pop(context); // Close AddUser screen after user is added
-      } catch (e) {
-        print('Error adding user: $e');
-        showsnackbar(context, "Error adding user");
-      }
+     
+
+    try {
+      print('Adding user: $newUser');
+      
+      final addNewUserProvider =
+          Provider.of<AddNewUserProvider>(context, listen: false);
+      await addNewUserProvider.createUser(newUser);
+      showsnackbar(context, "User Added");
+
+      // Update the list after adding the new user
+      addNewUserProvider.getUsers();
+
+      Navigator.pop(context); 
+    } catch (e) {
+      print('Error adding user: $e');
+      showsnackbar(context, "Error adding user");
     }
   }
+}
 }
